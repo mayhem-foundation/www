@@ -35,7 +35,12 @@
 
       .jumbotron {
         background-color: rgb(0, 7, 17);
-        padding-bottom: 2rem;
+        padding-: 0 0 2rem;
+      }
+
+      .jumbotron .motto {
+        /*border: 1px dashed #152454;*/
+        padding: 1rem;
       }
 
       .btn-primary {
@@ -160,9 +165,11 @@
       </div>
       <div id="body" class="container text-center">
         <div class="jumbotron">
-          <h1>Evolve free or die.</h1>
-          <p class="lead">The future is not gonna wait for <strong>us</strong>.</p>
-          <p class="lead">Join the <strong>digital revolution</strong>.</p>
+          <div class="motto">
+            <h1>Evolve free or die.</h1>
+            <p class="lead">The future is not gonna wait for <strong>us</strong>.</p>
+            <p class="lead">Join the <strong>digital revolution</strong>.</p>
+          </div>
           <hr class="my-4">
           <p class="lead">
             <ul class="list-inline menu">
@@ -311,7 +318,10 @@
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script
+			  src="https://code.jquery.com/jquery-3.1.1.min.js"
+			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/35acbe9500.js"></script>
@@ -329,10 +339,9 @@
       });
       $('.menu-button').click(function(e){
         e.preventDefault();
-        var hash = $(e.target).attr('data-target');
-        // console.log('setting hash to: %s',hash);
-        if (hash !== window.location.hash) {
-          window.location.hash = hash;
+        var target = $(e.target).attr('data-target');
+        if (target !== window.location.hash) {
+          window.location.hash = target;
         } else {
           window.location.hash = '';
         }
@@ -350,7 +359,8 @@
       $(window).on( 'hashchange', function(e) {
         $('.section').collapse('hide')
         var hash = window.location.hash;
-        $(hash).collapse('toggle');
+        var target = $(hash);
+        target.collapse('toggle');
       });
     </script>
   </body>
