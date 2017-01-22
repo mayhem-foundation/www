@@ -287,7 +287,7 @@
           <a class="tooltip-bottom btn-sm"
               href="http://mentalsmash.org"
               target="_blank"
-              title="In case you're wondering who's to blame for starting the fire">
+              title="In case you're wondering who's to blame for all the mayhem">
             a mentalsmash.org idea
           </a>
         </div>
@@ -314,10 +314,12 @@
       $('.menu-button').click(function(e){
         e.preventDefault();
         var hash = $(e.target).attr('data-target');
-        console.log('setting hash to: %s',hash);
-        window.location.hash = hash;
-        // $('.section').collapse('hide')
-        // $(hash).collapse()
+        // console.log('setting hash to: %s',hash);
+        if (hash !== window.location.hash) {
+          window.location.hash = hash;
+        } else {
+          window.location.hash = '';
+        }
       });
       $('.section-close').click(function(e){
         e.preventDefault();
