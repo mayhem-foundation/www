@@ -24,9 +24,17 @@
         margin-bottom: 0;
       }
 
+      a {
+        color: rgb(180, 192, 209);
+      }
+
+      a:hover {
+        text-decoration: none;
+        color: rgb(180, 192, 209);
+      }
+
       .jumbotron {
         background-color: rgb(0, 7, 17);
-        /*border: 1px solid rgb(2, 117, 216);*/
         padding-bottom: 2rem;
       }
 
@@ -46,41 +54,29 @@
       }
 
       .card {
-        /*border-color: rgb(2, 117, 216);*/
-        /*border-style:dashed;*/
-        /*border: 0;*/
         background-color: rgb(0, 7, 17);
         margin: 0 0 3rem;
         padding: 0 2rem;
-        /*border-top: 1px dashed #152454;
-        border-bottom: 1px dashed #152454;*/
         border-top: 1px solid #152454;
         border-bottom: 1px solid #152454;
       }
 
       .card-header {
-        /*border-bottom-color: rgb(2, 117, 216);*/
         border-bottom-color: #152454;
         border-bottom-width: 1px;
         background-color: rgb(0, 7, 17);
       }
 
       .card-body {
-        /*background-color: rgb(180, 192, 209);*/
-        /*color: rgb(0, 7, 17);*/
         padding-top: 2rem;
         padding-bottom: 2rem;
         border: 1px dashed #152454;
       }
 
       .card-footer {
-        /*border-top-color: rgb(180, 192, 209);*/
-        /*border-top-color: #101b40;*/
         border-top-color: #152454;
-        /*border-top-style: dashed;*/
         border-top-width: 1px;
         border-top-style: 1px solid;
-        /*padding: 0;*/
         background-color: rgb(0, 7, 17);
       }
 
@@ -103,7 +99,6 @@
 
       #header {
         padding-top: 2rem;
-        /*border-bottom: 1px solid rgb(2, 117, 216);*/
         border-bottom: 1px solid #152454;
       }
 
@@ -125,7 +120,6 @@
 
       #footer {
         font-size: 80%;
-        /*border-top: 1px solid rgb(2, 117, 216);*/
         border-top: 1px solid #152454;
         padding: 1.5rem 1rem 0;
         text-align: center;
@@ -136,7 +130,6 @@
       }
 
       #footer .copy {
-        /*font-size: 170%;*/
         padding: 0 0 1.5rem;
         margin: 0;
         margin-top: 1rem;
@@ -151,7 +144,13 @@
   <body>
     <div class="page">
       <div class="container text-center" id="header">
-        <h1>the mayhem foundation</h1>
+        <h1>
+          <a class="tooltip-bottom"
+              href=""
+              title="Go to homepage">
+            the mayhem foundation
+          </a>
+        </h1>
       </div>
       <div id="body" class="container text-center">
         <div class="jumbotron">
