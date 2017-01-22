@@ -121,7 +121,7 @@
       #footer {
         font-size: 80%;
         border-top: 1px solid #152454;
-        padding: 1.5rem 1rem 0;
+        padding: 1rem 0rem 0;
         text-align: center;
       }
 
@@ -130,9 +130,10 @@
       }
 
       #footer .copy {
-        padding: 0 0 1.5rem;
+        padding: 1rem 0 1.5rem;
         margin: 0;
-        margin-top: 1rem;
+        margin-top: 0rem;
+        border-top: 1px solid #152454;
       }
 
       #donate .buttons {
@@ -212,6 +213,7 @@
           <li class="list-inline-item">
             <a class="btn btn-primary btn-sm tooltip-bottom"
                 href="mailto:evolve@mayhem.foundation"
+                target="_blank"
                 data-target="#contact"
                 title="Drop an email if you want to learn more"
                 role="button">
@@ -272,9 +274,21 @@
           </div>
         </div>
         <div class="copy">
-          <i class="fa fa-copyright" aria-hidden="true"></i>
-          2017 -
-          mayhem foundation
+          <a class="tooltip-bottom btn-sm"
+              href="http://creativecommons.org/licenses/by-nc/4.0/"
+              target="_blank"
+              title="All content is shared under Creative Commons Attribution-NonCommercial 4.0 International License">
+            <i class="fa fa-creative-commons" aria-hidden="true"></i>
+            <span class="sr-only">All content is shared under Creative Commons Attribution-NonCommercial 4.0 International License</span>
+            2017 mayhem foundation
+          </a>
+          <br>
+          <a class="tooltip-bottom btn-sm"
+              href="http://mentalsmash.org"
+              target="_blank"
+              title="In case you're wondering who's to blame for starting the fire">
+            a mentalsmash.org idea
+          </a>
         </div>
       </div>
     </div>
