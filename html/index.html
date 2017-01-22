@@ -6,9 +6,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
     integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
+    <link href="https://fonts.googleapis.com/css?family=Overpass|PT+Sans" rel="stylesheet">
 
     <style media="screen">
       body {
+        font-family: 'PT Sans', sans-serif;
         background-color: rgb(0, 7, 17);
         color: rgb(180, 192, 209);
       }
@@ -31,26 +33,40 @@
         background-color: rgb(0, 7, 17);
       }
 
-      .modal {
+      .list-inline {
+        padding: 0;
+        margin: 0;
+      }
+
+      .card {
+        /*border-color: rgb(2, 117, 216);*/
+        /*border: 0;*/
+        background-color: rgb(0, 7, 17);
+        margin: 0 0 3rem;
+      }
+
+      .card-header {
+        /*border-bottom-color: rgb(2, 117, 216);*/
+        border-bottom-width: thin;
         background-color: rgb(0, 7, 17);
       }
 
-      .modal-content {
-        border-color: rgb(2, 117, 216);
-        background-color: rgb(0, 7, 17);
-      }
-
-      .modal-header {
-        border-bottom-color: rgb(2, 117, 216);
-      }
-
-      .modal-body {
+      .card-body {
+        /*background-color: rgb(180, 192, 209);*/
+        /*color: rgb(0, 7, 17);*/
         padding-top: 2rem;
         padding-bottom: 2rem;
       }
 
-      .modal-footer {
-        border-top-color: rgb(2, 117, 216);
+      .card-footer {
+        /*border-top-color: rgb(2, 117, 216);*/
+        border-top-style: 1px solid;
+        /*padding: 0;*/
+        background-color: rgb(0, 7, 17);
+      }
+
+      .card-footer .btn-primary {
+        border: 0;
       }
 
       #header {
@@ -63,15 +79,21 @@
       }
 
       #footer {
+        font-size: 80%;
         border-top: 1px solid rgb(2, 117, 216);
-        padding: 1.5rem;
+        padding: 1.5rem 1rem 0;
         text-align: center;
       }
 
       #footer h1 {
-        font-size: 150%;
-        padding: 0;
+        font-size: 170%;
+        padding: 0 0 1.5rem;
+        /*padding-bottom: 1rem;*/
         margin: 0;
+      }
+
+      #donate .buttons {
+        margin-top: 2rem;
       }
     </style>
 
@@ -85,50 +107,51 @@
         <p class="lead">
           <ul class="list-inline">
             <li class="list-inline-item">
-              <a class="btn btn-primary btn-lg tooltip-enabled"
-                  href="mailto:evolve@mayhem.foundation"
-                  title="Drop an email if you want to learn more"
-                  role="button">Contact</a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn btn-primary btn-lg tooltip-enabled"
-              href="https://github.com/mayhem-foundation"
-              title="Check out our github repositories to find out what we're working on"
-              role="button">Source</a>
-            </li>
-            <li class="list-inline-item">
               <a class="btn btn-primary btn-lg"
                   href="#"
-                  title="Revolution ain't cheap"
-                  role="button"
-                  data-toggle="modal"
-                  data-target="#donate">Donate</a>
+                  data-toggle="collapse" data-target="#manifesto"
+                  role="button">Manifesto</a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn btn-primary btn-lg tooltip-bottom"
+                  href="https://github.com/mayhem-foundation"
+                  title="Find out what we're working on"
+                  target="_blank"
+                  role="button">Source</a>
             </li>
           </ul>
         </p>
       </div>
-    </div>
-
-    <div class="container" id="footer">
-      <h1>the mayhem foundation</h1>
-      <p>
-        <i class="fa fa-copyright"></i> 2017
-      </p>
-    </div>
-
-    <div class="modal fade" id="donate"
-        tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title">Revolution ain't cheap</h3>
+      <div class="collapse fade" id="manifesto">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="display-2">Manifesto</h2>
           </div>
-          <div class="modal-body text-center">
-            <p class="text-center">
+          <div class="card-body">
+            Soon...
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary btn-sm"
+                title="Hide"
+                data-toggle="collapse" data-target="#manifesto">
+                <i class="fa fa-angle-up" aria-hidden="true"></i> hide
+                <span class="sr-only">Hide</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="collapse fade" id="donate"
+          tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="display-2">Revolution ain't cheap</h2>
+          </div>
+          <div class="card-body">
+            <p>
               You can help us bring forth the digital revolution
               by donating through one of the following channels:
             </p>
-            <ul class="list-inline">
+            <ul class="list-inline buttons">
               <li class="list-inline-item">
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                   <input type="hidden" name="cmd" value="_s-xclick">
@@ -140,12 +163,37 @@
               </li>
             </ul>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary btn-sm"
+                title="Hide"
+                data-toggle="collapse" data-target="#donate">
+                <i class="fa fa-angle-up" aria-hidden="true"></i> hide
+                <span class="sr-only">Hide</span>
+            </a>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="container" id="footer">
+      <h1>the mayhem foundation</h1>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a class="btn btn-primary btn-sm tooltip-bottom"
+              href="#contact"
+              title="Drop an email if you want to learn more"
+              role="button">Contact</a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn btn-primary btn-sm"
+              href="#donate"
+              role="button"
+              data-toggle="collapse"
+              data-target="#donate">Donate</a>
+        </li>
+      </ul>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -153,8 +201,11 @@
     <script src="https://use.fontawesome.com/35acbe9500.js"></script>
 
     <script type="text/javascript">
-      $('a.tooltip-enabled').tooltip({
+      $('a.tooltip-bottom').tooltip({
         placement: 'bottom'
+      });
+      $('a.tooltip-top').tooltip({
+        placement: 'top'
       });
     </script>
   </body>
