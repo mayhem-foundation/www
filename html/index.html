@@ -23,13 +23,40 @@
         border-color: rgb(0, 7, 17);
       }
 
+      ul {
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+
       .jumbotron {
         background-color: rgb(0, 7, 17);
         padding-top: 2rem;
       }
 
       .btn-primary {
-        background-color: #000;
+        background-color: rgb(0, 7, 17);
+      }
+
+      .modal {
+        background-color: rgb(0, 7, 17);
+      }
+
+      .modal-content {
+        border-color: rgb(2, 117, 216);
+        background-color: rgb(0, 7, 17);
+      }
+
+      .modal-header {
+        border-bottom-color: rgb(2, 117, 216);
+      }
+
+      .modal-body {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+
+      .modal-footer {
+        border-top-color: rgb(2, 117, 216);
       }
 
       #header {
@@ -63,7 +90,7 @@
             <li class="list-inline-item">
               <a class="btn btn-primary btn-lg"
                   href="mailto:evolve@mayhem.foundation"
-                  title="Drop an email if you want to know more"
+                  title="Drop an email if you want to learn more"
                   role="button">Contact</a>
             </li>
             <li class="list-inline-item">
@@ -76,7 +103,9 @@
               <a class="btn btn-primary btn-lg"
                   href="#"
                   title="Revolution ain't cheap"
-                  role="button">Donate</a>
+                  role="button"
+                  data-toggle="modal"
+                  data-target="#donate">Donate</a>
             </li>
           </ul>
         </p>
@@ -87,6 +116,46 @@
       2017 <i class="fa fa-copyright"></i> mayhem foundation
     </div>
 
+    <div class="modal fade" id="donate"
+        tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Revolution ain't cheap</h3>
+          </div>
+          <div class="modal-body text-center">
+            <p class="text-center">
+              You can help us bring forth the digital revolution
+              by donating through one of the following channels:
+            </p>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                  <input type="hidden" name="cmd" value="_s-xclick">
+                  <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+                  ">
+                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/35acbe9500.js"></script>
+
+    <script type="text/javascript">
+      $('a').tooltip({
+        placement: 'bottom'
+      });
+    </script>
   </body>
 </html>
