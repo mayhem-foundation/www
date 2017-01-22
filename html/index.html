@@ -32,6 +32,12 @@
 
       .btn-primary {
         background-color: rgb(0, 7, 17);
+        border: 1px solid #152454;
+      }
+
+      .btn-primary:hover {
+        background-color: #152454;
+        /*border: 1px solid #152454;*/
       }
 
       .list-inline {
@@ -41,14 +47,21 @@
 
       .card {
         /*border-color: rgb(2, 117, 216);*/
+        /*border-style:dashed;*/
         /*border: 0;*/
         background-color: rgb(0, 7, 17);
         margin: 0 0 3rem;
+        padding: 0 2rem;
+        /*border-top: 1px dashed #152454;
+        border-bottom: 1px dashed #152454;*/
+        border-top: 1px solid #152454;
+        border-bottom: 1px solid #152454;
       }
 
       .card-header {
         /*border-bottom-color: rgb(2, 117, 216);*/
-        border-bottom-width: thin;
+        border-bottom-color: #152454;
+        border-bottom-width: 1px;
         background-color: rgb(0, 7, 17);
       }
 
@@ -57,10 +70,15 @@
         /*color: rgb(0, 7, 17);*/
         padding-top: 2rem;
         padding-bottom: 2rem;
+        border: 1px dashed #152454;
       }
 
       .card-footer {
-        /*border-top-color: rgb(2, 117, 216);*/
+        /*border-top-color: rgb(180, 192, 209);*/
+        /*border-top-color: #101b40;*/
+        border-top-color: #152454;
+        /*border-top-style: dashed;*/
+        border-top-width: 1px;
         border-top-style: 1px solid;
         /*padding: 0;*/
         background-color: rgb(0, 7, 17);
@@ -70,20 +88,51 @@
         border: 0;
       }
 
+      i.fa {
+        margin-right: 0.5rem;
+        display: inline-block;
+      }
+
+      .btn-sm i.fa {
+        margin-right: 0.3rem;
+      }
+
+      .menu {
+        padding-bottom: 1rem;
+      }
+
       #header {
         padding-top: 2rem;
-        border-bottom: 1px solid rgb(2, 117, 216);
+        /*border-bottom: 1px solid rgb(2, 117, 216);*/
+        border-bottom: 1px solid #152454;
       }
 
       #body {
         margin-top: 2rem;
       }
 
+      #body h1 {
+        font-size: 500%;
+      }
+
+      #body h2 {
+        font-size: 600%;
+      }
+
+      #body h2 i.fa {
+        font-size: 70%;
+      }
+
       #footer {
         font-size: 80%;
-        border-top: 1px solid rgb(2, 117, 216);
+        /*border-top: 1px solid rgb(2, 117, 216);*/
+        border-top: 1px solid #152454;
         padding: 1.5rem 1rem 0;
         text-align: center;
+      }
+
+      #footer h2 {
+        font-size: 300%;
       }
 
       #footer .copy {
@@ -100,105 +149,134 @@
 
   </head>
   <body>
-    <div class="container text-center" id="header">
-      <h1>the mayhem foundation</h1>
-    </div>
-    <div id="body" class="container text-center">
-      <div class="jumbotron">
-        <h1 class="display-3">Evolve or die.</h1>
-        <p class="lead">The future is not gonna wait for us.</p>
-        <hr class="my-4">
-        <p class="lead">
-          <ul class="list-inline">
-            <li class="list-inline-item">
-              <a class="btn btn-primary btn-lg"
-                  href="#"
-                  data-toggle="collapse" data-target="#manifesto"
-                  role="button">Manifesto</a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn btn-primary btn-lg tooltip-bottom"
-                  href="https://github.com/mayhem-foundation"
-                  title="Find out what we're working on"
-                  target="_blank"
-                  role="button">Source</a>
-            </li>
-          </ul>
-        </p>
+    <div class="page">
+      <div class="container text-center" id="header">
+        <h1>the mayhem foundation</h1>
       </div>
-      <div class="collapse fade" id="manifesto">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="display-2">Manifesto</h2>
-          </div>
-          <div class="card-body">
-            Soon...
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary btn-sm"
-                title="Hide"
-                data-toggle="collapse" data-target="#manifesto">
-                <i class="fa fa-angle-up" aria-hidden="true"></i> hide
-                <span class="sr-only">Hide</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container" id="footer">
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a class="btn btn-primary btn-sm tooltip-bottom"
-              href="#contact"
-              title="Drop an email if you want to learn more"
-              role="button">Contact</a>
-        </li>
-        <li class="list-inline-item">
-          <a class="btn btn-primary btn-sm"
-              href="#donate"
-              role="button"
-              data-toggle="collapse"
-              data-target="#donate">Donate</a>
-        </li>
-      </ul>
-      <div class="collapse fade" id="donate"
-          tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="display-3">Revolution ain't cheap</h2>
-          </div>
-          <div class="card-body">
-            <p>
-              You can help us bring forth the digital revolution
-              by donating through one of the following channels:
-            </p>
-            <ul class="list-inline buttons">
+      <div id="body" class="container text-center">
+        <div class="jumbotron">
+          <h1>Evolve or die.</h1>
+          <p class="lead">The future is not gonna wait for us.</p>
+          <hr class="my-4">
+          <p class="lead">
+            <ul class="list-inline menu">
               <li class="list-inline-item">
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                  <input type="hidden" name="cmd" value="_s-xclick">
-                  <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-                  ">
-                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                </form>
+                <a class="btn btn-primary btn-lg menu-button tooltip-bottom"
+                    href="#manifesto"
+                    data-target="#manifesto"
+                    role="button"
+                    title="Revolutions go nowhere without an aim">
+                    <i class="fa fa-file-text" aria-hidden="true"></i>
+                    Manifesto
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-primary btn-lg tooltip-bottom"
+                    href="https://github.com/mayhem-foundation"
+                    title="Find out what we're currently working on"
+                    target="_blank"
+                    role="button">
+                    <i class="fa fa-cogs" aria-hidden="true"></i>
+                    Source
+                </a>
               </li>
             </ul>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary btn-sm"
-                title="Hide"
-                data-toggle="collapse" data-target="#donate">
-                <i class="fa fa-angle-up" aria-hidden="true"></i> hide
-                <span class="sr-only">Hide</span>
-            </a>
+          </p>
+        </div>
+        <div class="collapse fade section" id="manifesto">
+          <div class="card">
+            <div class="card-header">
+              <h2>
+                <i class="fa fa-file-text align-middle" aria-hidden="true"></i>
+                <span class="align-middle">Manifesto</span>
+              </h2>
+            </div>
+            <div class="card-body">
+              Coming soon.
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-primary btn-sm section-close"
+                  href="#"
+                  title="Hide"
+                  data-toggle="collapse"
+                  data-target="#manifesto">
+                  <i class="fa fa-angle-up" aria-hidden="true"></i> hide
+                  <span class="sr-only">Hide</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="copy">
-        <i class="fa fa-copyright" aria-hidden="true"></i>
-        2017 -
-        mayhem foundation
+
+      <div class="container" id="footer">
+        <ul class="list-inline menu">
+          <li class="list-inline-item">
+            <a class="btn btn-primary btn-sm tooltip-bottom"
+                href="mailto:evolve@mayhem.foundation"
+                data-target="#contact"
+                title="Drop an email if you want to learn more"
+                role="button">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>
+              Get in touch
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn btn-primary btn-sm menu-button tooltip-bottom"
+                href="#donate"
+                role="button"
+                data-toggle="collapse"
+                data-target="#donate"
+                title="Revolution ain't cheap">
+                <i class="fa fa-money" aria-hidden="true"></i>
+                Donate
+              </a>
+          </li>
+        </ul>
+        <div class="collapse fade section" id="donate"
+            tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="card">
+            <div class="card-header">
+              <h2>
+                <i class="fa fa-money align-middle" aria-hidden="true"></i>
+                <span class="align-middle">Revolution ain't cheap</span>
+              </h2>
+            </div>
+            <div class="card-body">
+              <p>
+                Please consider helping us bring forth the <strong>digital revolution</strong>
+                by donating through one of the following channels:
+              </p>
+              <ul class="list-inline buttons">
+                <li class="list-inline-item">
+                  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+                    ">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
+                        border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"
+                        title="PayPal" class="tooltip-bottom">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                  </form>
+                </li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <a <a class="btn btn-primary btn-sm section-close"
+                  href="#"
+                  title="Hide"
+                  data-toggle="collapse"
+                  data-target="#donate">
+                  <i class="fa fa-angle-up" aria-hidden="true"></i> hide
+                  <span class="sr-only">Hide</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <i class="fa fa-copyright" aria-hidden="true"></i>
+          2017 -
+          mayhem foundation
+        </div>
       </div>
     </div>
 
@@ -209,11 +287,38 @@
     <script src="https://use.fontawesome.com/35acbe9500.js"></script>
 
     <script type="text/javascript">
-      $('a.tooltip-bottom').tooltip({
+      $('.tooltip-bottom').tooltip({
         placement: 'bottom'
       });
-      $('a.tooltip-top').tooltip({
+      $('.tooltip-top').tooltip({
         placement: 'top'
+      });
+      $('.section').collapse({
+        parent: '#body',
+        toggle: false
+      });
+      $('.menu-button').click(function(e){
+        e.preventDefault();
+        var hash = $(e.target).attr('data-target');
+        console.log('setting hash to: %s',hash);
+        window.location.hash = hash;
+        // $('.section').collapse('hide')
+        // $(hash).collapse()
+      });
+      $('.section-close').click(function(e){
+        e.preventDefault();
+        console.log('clearing hash');
+        window.location.hash = '';
+      });
+      var hash = window.location.hash;
+      console.log('toggling section: %s',hash);
+      if (hash) {
+        $(hash).collapse('toggle');
+      }
+      $(window).on( 'hashchange', function(e) {
+        $('.section').collapse('hide')
+        var hash = window.location.hash;
+        $(hash).collapse('toggle');
       });
     </script>
   </body>
