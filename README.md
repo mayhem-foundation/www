@@ -1,3 +1,3 @@
 # Mayhem Foundation - Website Source
 
-Source code for https://mayhem.foundation
+Source code for http://mayhem.foundation
