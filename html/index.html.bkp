@@ -407,19 +407,19 @@
       <div id="nav" class="container-fluid">
         <ul class="list-inline menu">
           <li class="list-inline-item">
-            <a class="btn btn-primary btn-lg menu-button tooltip-bottom" data-target="#manifesto" data-parent="#motto"
+            <a id="manifesto-link" class="btn btn-primary btn-lg menu-button tooltip-bottom" data-target="#manifesto" data-parent="#motto"
                 href="#manifesto"
                 data-toggle="collapse"
                 role="button"
-                title="The revolution for digital human independence will end up nowhere without good aim">
+                title="The revolution will end up nowhere without good aim">
                 <i class="fa fa-file-text" aria-hidden="true"></i>
                 Manifesto
             </a>
           </li>
           <li class="list-inline-item">
-            <a class="btn btn-primary btn-lg tooltip-bottom"
+            <a id="source-link" class="btn btn-primary btn-lg tooltip-bottom"
                 href="https://github.com/mayhem-foundation"
-                title="Find out what we're currently working on"
+                title="Things we're currently working on"
                 target="_blank"
                 role="button">
                 <i class="fa fa-cogs" aria-hidden="true"></i>
@@ -429,17 +429,17 @@
         </ul>
         <ul class="list-inline menu">
           <li class="list-inline-item">
-            <a class="btn btn-primary btn-sm tooltip-bottom" data-target="#contact" data-parent="#page"
-                title="Drop an email if you want to learn more"
+            <a id="contact-link" class="btn btn-primary btn-sm tooltip-bottom" data-target="#contact" data-parent="#page"
+                title="Find mayhem everywhere"
                 href="mailto:evolve@mayhem.foundation"
                 target="_blank"
                 role="button">
-              <i class="fa fa-envelope-o" aria-hidden="true"></i>
-              Get in touch
+              <i class="fa fa-users" aria-hidden="true"></i>
+              Contacts
             </a>
           </li>
           <li class="list-inline-item">
-            <a class="btn btn-primary btn-sm menu-button tooltip-bottom" data-target="#donate" data-parent="#page"
+            <a id="donate-link" class="btn btn-primary btn-sm menu-button tooltip-bottom" data-target="#donate" data-parent="#page"
                 title="Revolutions ain't cheap"
                 href="#donate"
                 role="button"
@@ -449,7 +449,7 @@
               </a>
           </li>
           <li class="list-inline-item">
-            <a class="btn btn-primary btn-sm menu-button tooltip-bottom" data-target="#thanks" data-parent="#page"
+            <a id="thanks-link" class="btn btn-primary btn-sm menu-button tooltip-bottom" data-target="#thanks" data-parent="#page"
                 title="We couldn't do this alone"
                 data-toggle="collapse"
                 role="button"
@@ -674,7 +674,7 @@
             console.log('scrolling to: %s',target);
             $('html, body').animate({
               scrollTop: $(target).offset().top
-            }, 500);
+            }, 1500);
           },0);
         }
 
@@ -685,7 +685,7 @@
       }
 
       function isHashSection(hash){
-        return hash && hash !== '' &&
+        return hash && hash !== '' && hash != '#' &&
             hash !== '#page' &&
             hash !== '#header' &&
             hash !== '#nav' &&
@@ -717,64 +717,58 @@
         window.location.hash = hash;
       }
 
-      var currSection = window.location.hash;
+      var currHash = window.location.hash || null;
 
       $('.menu-button').click(function(e){
         e.preventDefault();
         var target = $(e.target).attr('data-target');
         console.log('data-target: %s',target);
         if (target !== window.location.hash) {
-          currSection = target;
-          scrollPage(target);
           setHash(target);
+          $('[data-target="'+target+'"]').addClass('btn-sec-open');
         } else {
-          currSection = null;
           setHash('');
+          $('[data-target="'+target+'"]').removeClass('btn-sec-open');
         }
       });
       $('.section-close').click(function(e){
         e.preventDefault();
         var parent = $(e.target).attr('data-parent');
-        currSection = null;
-        scrollPage(parent);
         setHash(parent);
       });
 
       $(window).on( 'hashchange',function(e) {
         var hash = window.location.hash;
+        console.log('hashchange: cur=%s, hash=%s',currHash,hash);
+        var hashLinks = $('[data-target="'+hash+'"]');
+        var sectionOpen = true;
+        if (hashLinks.length > 0) {
+          sectionOpen = hashLinks.hasClass('btn-sec-open');
+        }
         if (isHashSection(hash)) {
-
-          if (currSection &&
-              (!isHashSection(currSection)||
-                currSection === hash)) {
-            currSection = hash;
-            setHash(currSection);
-            scrollPage(currSection);
-            return;
+          currHash = hash;
+          if (!sectionOpen) {
+            console.log('hashchange: opening section %s',hash);
+            collapse(hash)
+            scrollPage(hash);
+          } else {
+            console.log('hashchange: closing section %s',hash);
+            collapse(hash)
           }
-
-          currSection = hash;
-          if (currSection &&
-              (!isHashSection(currSection)||
-                currSection !== hash)) {
-            var target = $(hash);
-            console.log('toggling: %s',hash);
-            collapse(target);
-          }
+        } else {
+          currHash = hash;
           scrollPage(hash);
         }
       });
 
       /* open section from browser URL */
       var hash = window.location.hash;
-      if (isHashSection(hash)) {
-        console.log('opening section: %s',hash);
-        currSection = hash;
-        var target = $(hash);
-        collapse(target)
-        scrollPage(hash);
-        console.log('section opened');
-      }
+      if (isHashSection(hash)){
+        setHash('');
+        setTimeout(function(){
+          setHash(hash);
+        },100);
+    }
     </script>
   </body>
 </html>
