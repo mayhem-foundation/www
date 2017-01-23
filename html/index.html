@@ -420,6 +420,7 @@
       //   toggle: false
       // });
       function scrollPage(target){
+        console.log('setting scrolling timeout');
         setTimeout(function(){
           console.log('scrolling to: %s',target);
           $('html, body').animate({
@@ -435,6 +436,15 @@
             hash !== '#body' &&
             hash !== '#content' &&
             hash !== '#footer';
+      }
+
+      function collapse(target){
+        try {
+          target.collapse('toggle');
+        } catch (e) {
+          console.log('IGNORING bootstrap error:');
+          console.error(e.stack);
+        }
       }
 
       var currSection = window.location.hash;
@@ -466,7 +476,7 @@
           currSection = hash;
           var target = $(hash);
           console.log('toggling: %s',hash);
-          target.collapse('toggle');
+          collapse(target);
           scrollPage(target);
         }
       });
@@ -474,10 +484,12 @@
       /* open section from browser URL */
       var hash = window.location.hash;
       if (isHashSection(hash)) {
+        console.log('opening section: %s',hash);
         currSection = hash;
         var target = $(hash);
-        target.collapse('toggle');
+        collapse(target)
         scrollPage(hash);
+        console.log('section opened');
       }
     </script>
   </body>
