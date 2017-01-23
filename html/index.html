@@ -35,13 +35,24 @@
 
       .jumbotron {
         background-color: rgb(0, 7, 17);
-        padding: 2rem 0;
-        margin: 0;
+        padding: 5rem 0 2rem;
+        margin: 2rem 0 3rem;
         text-align: center;
+        border-radius: 10px;
+        background-color: rgb(0, 21, 51);
       }
 
       p.lead strong {
         font-weight: bold;
+      }
+
+      strong {
+          border-bottom-width: 3px;
+          border-bottom-style: dotted;
+          border-bottom-color: #D15D00;
+          display: inline-block;
+          padding: .2rem 0rem;
+          margin: 0 .2rem;
       }
 
       .btn-primary {
@@ -70,13 +81,14 @@
       .card-header {
         text-align: center;
         border-bottom-color: #152454;
+        border-bottom-color: rgb(0, 21, 51);
         border-bottom-width: 0;
         background-color: rgb(0, 7, 17);
       }
 
       .card-body {
         padding: 2rem 2rem 2rem;
-        border: 3px solid #152454;
+        /*border: 3px solid #152454;*/
         border-radius: 10px;
         background-color: rgb(0, 21, 51);
       }
@@ -108,6 +120,12 @@
         margin-right: 0.3rem;
       }
 
+      h1 i.fa,
+      h2 i.fa {
+        margin-bottom: 1rem;
+        margin-top: .5rem
+      }
+
       .menu {
         padding-bottom: 1rem;
         text-align: center;
@@ -115,12 +133,35 @@
 
       .menu .btn-primary:hover {
         background-color: #152454;
+        background-color: rgb(0, 21, 51);
         /*border: 1px solid #152454;*/
       }
 
-
       .coming-soon {
         text-align: center;
+      }
+
+      .wavy {
+        border-bottom-style: dotted;
+        border-bottom-color: #D15D00;
+        display: inline-block;
+        padding: .2rem .2rem;
+      }
+
+      .wavy-1 {
+        border-bottom-width: 10px;
+      }
+
+      .wavy-2 {
+        border-bottom-width: 8px;
+      }
+
+      .wavy-3 {
+        border-bottom-width: 3px;
+      }
+
+      .wavy-4 {
+        border-bottom-width: 2px;
       }
 
       #page {
@@ -132,24 +173,18 @@
         text-align: center;
         padding-top: 1rem;
         padding-bottom: 1rem;
-        border-top: 1px solid #152454;
-        border-bottom: 1px solid #152454;
+        /*border-bottom: 1px solid red;*/
       }
 
-      #motto {
-        padding: 0;
-        margin: 0 auto;
+      #header h1{
+        font-size: 250%;
+        padding-bottom: .5rem;
+        margin: 0;
       }
 
       #body {
         margin: 0 auto;
-        padding: 0 0 0rem;
-      }
-
-      #body h1,
-      #motto h1 {
-        font-size: 500%;
-        padding-bottom: 0.5rem;
+        padding: 0;
       }
 
       #body h2 {
@@ -162,42 +197,56 @@
 
       #body .menu {
         text-align: center;
+        margin-bottom: .5rem;
         padding: 1rem 1rem 2rem;
-        border-bottom: 1px solid #152454;
+        /*border-bottom: 1px solid #152454;*/
+      }
+
+      #motto {
+        padding: 0;
+        margin: 0 auto;
+      }
+
+      #motto h1 {
+        font-size: 500%;
+        padding-bottom: .7rem;
+        margin: 0 1rem 1.5rem;
       }
 
       #footer {
         font-size: 80%;
-        border-top: 1px solid #152454;
-        padding: 1rem 0rem 0;
+        /*border-top: 1px solid #152454;*/
+        padding: 0rem 0rem 0;
       }
 
-      #footer .menu {
-        text-align: center;
-        padding: .5rem;
-        border: 0;
-        border-radius: 10px;
-        margin: 0 1rem 1rem;
-      }
-
-      #footer h2 {
-        font-size: 300%;
-      }
-
-      #footer .card-body {
-        font-size: 120%;
+      #footer strong {
+        border-bottom-width: 2px;
       }
 
       #footer .copy {
         text-align: center;
-        padding: 1rem 0 1.5rem;
+        padding: 0rem 0 1.5rem;
         margin: 0;
         margin-top: 0rem;
-        border-top: 1px solid #152454;
+        /*border-top: 1px solid #152454;*/
       }
 
       #donate .buttons {
         margin-top: 2rem;
+      }
+
+      .thanks dd {
+        border-bottom-style: dotted;
+        border-bottom-color: #D15D00;
+        display: inline-block;
+        padding: 1rem 1rem 2rem;
+        /*margin-top: 1rem;*/
+        border-bottom-width: 2px;
+      }
+
+      .thanks dt {
+        padding: 1rem .5rem 2rem;
+        /*border-top: 1px solid #152454;*/
       }
     </style>
 
@@ -205,7 +254,7 @@
   <body>
     <div id="page">
       <div class="container" id="header">
-        <h1>
+        <h1 class="wavy wavy-2">
           <a class="tooltip-bottom"
               href=""
               title="Go to homepage">
@@ -215,7 +264,7 @@
       </div>
       <div id="motto" class="container">
         <div class="jumbotron">
-          <h1>Evolve free or die.</h1>
+          <h1>Evolve <span class="wavy wavy-1">free</span> or die.</h1>
           <p class="lead">The future is not gonna wait for
             <strong>
               <a class="menu-button tooltip-bottom" data-target="#manifesto" data-parent="#page"
@@ -225,7 +274,7 @@
                   title="We, the People of Planet Earth">
                   us
               </a>
-            </strong>.
+            </strong>
           </p>
           <p class="lead">Join the
             <strong>
@@ -235,68 +284,33 @@
                   role="button"
                   title="Read our manifesto">
                   digital human revolution
-              </a>
-            </strong> today.
+              </a></strong> today
           </p>
         </div>
       </div>
-      <div id="body" class="container">
-        <div id="nav">
-          <ul class="list-inline menu">
-            <li class="list-inline-item">
-              <a class="btn btn-primary btn-lg menu-button tooltip-bottom" data-target="#manifesto" data-parent="#body"
-                  href="#manifesto"
-                  data-toggle="collapse"
-                  role="button"
-                  title="The digital human revolution will end up nowhere without good aim">
-                  <i class="fa fa-file-text" aria-hidden="true"></i>
-                  Manifesto
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn btn-primary btn-lg tooltip-bottom"
-                  href="https://github.com/mayhem-foundation"
-                  title="Find out what we're currently working on"
-                  target="_blank"
-                  role="button">
-                  <i class="fa fa-cogs" aria-hidden="true"></i>
-                  Source
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div id="content">
-          <div class="collapse fade section" id="manifesto">
-            <div class="card">
-              <div class="card-header">
-                <a href="#manifesto">
-                  <h2>
-                      <i class="fa fa-file-text align-middle" aria-hidden="true"></i>
-                      <p>
-                        The<br> Digital Human<br> Manifesto
-                      </p>
-                  </h2>
-                </a>
-              </div>
-              <div class="card-body coming-soon">
-                Coming soon.
-              </div>
-              <div class="card-footer">
-                <a class="btn btn-primary btn-sm section-close" data-target="#manifesto" data-parent="#body"
-                    title="Hide"
-                    href="#"
-                    data-toggle="collapse">
-                    <i class="fa fa-angle-up" aria-hidden="true"></i> hide
-                    <span class="sr-only">Hide</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container" id="footer">
+      <div id="nav" class="container">
+        <ul class="list-inline menu">
+          <li class="list-inline-item">
+            <a class="btn btn-primary btn-lg menu-button tooltip-bottom" data-target="#manifesto" data-parent="#body"
+                href="#manifesto"
+                data-toggle="collapse"
+                role="button"
+                title="The digital human revolution will end up nowhere without good aim">
+                <i class="fa fa-file-text" aria-hidden="true"></i>
+                Manifesto
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn btn-primary btn-lg tooltip-bottom"
+                href="https://github.com/mayhem-foundation"
+                title="Find out what we're currently working on"
+                target="_blank"
+                role="button">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+                Source
+            </a>
+          </li>
+        </ul>
         <ul class="list-inline menu">
           <li class="list-inline-item">
             <a class="btn btn-primary btn-sm tooltip-bottom" data-target="#contact" data-parent="#page"
@@ -329,6 +343,35 @@
               </a>
           </li>
         </ul>
+      </div>
+
+      <div id="body">
+        <div class="collapse fade section" id="manifesto">
+          <div class="card">
+            <div class="card-header">
+              <a href="#manifesto">
+                <h2>
+                    <i class="fa fa-file-text align-middle" aria-hidden="true"></i>
+                    <p>
+                      The<br> Digital Human<br> Manifesto
+                    </p>
+                </h2>
+              </a>
+            </div>
+            <div class="card-body coming-soon">
+              <strong>Coming soon</strong>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-primary btn-sm section-close" data-target="#manifesto" data-parent="#body"
+                  title="Hide"
+                  href="#"
+                  data-toggle="collapse">
+                  <i class="fa fa-angle-up" aria-hidden="true"></i> hide
+                  <span class="sr-only">Hide</span>
+              </a>
+            </div>
+          </div>
+        </div>
         <div class="collapse fade section" id="donate"
             tabindex="-1" role="dialog" aria-hidden="true">
           <div class="card">
@@ -342,10 +385,10 @@
                 </h2>
               </a>
             </div>
-            <div class="card-body">
+            <div class="card-body text-center">
               <p>
-                Please consider helping us bring forth the <strong>digital human revolution</strong>
-                by donating through one of the following channels:
+                If you'd like to <strong>help us bring forth the digital human revolution</strong>,<br>
+                please <strong>consider donating</strong> through one of the following channels:
               </p>
               <ul class="list-inline buttons">
                 <li class="list-inline-item">
@@ -397,7 +440,7 @@
               </p>
 
               <dl class="thanks row">
-                <dt class="col-3">
+                <dt class="col-2">
                   <a class="tooltip-bottom"
                     name="FreeDNS"
                     href="https://freedns.afraid.org"
@@ -406,10 +449,10 @@
                     afraid.org
                   </a>
                 </dt>
-                <dd  class="col-9">
+                <dd  class="col-10">
                   Amazing, reliable, free DNS hosting.
                 </dd>
-                <dt class="col-3">
+                <dt class="col-2">
                   <a class="tooltip-bottom"
                     href="https://getbootstrap.com"
                     target="_blank"
@@ -417,13 +460,13 @@
                     Bootstrap
                   </a>
                 </dt>
-                <dd class="col-9">
+                <dd class="col-10">
                   <blockquote class="blockquote">
                     The most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.
                   </blockquote>
                   Just awesome stuff.
                 </dd>
-                <dt class="col-3">
+                <dt class="col-2">
                   <a class="tooltip-bottom"
                     href="http://fontawesome.io/"
                     target="_blank"
@@ -431,7 +474,7 @@
                     Font Awesome
                   </a>
                 </dt>
-                <dd class="col-9">
+                <dd class="col-10">
                   A beautiful, free, set of icons and other typographic elements for modern UIs.
                 </dd>
               </dl>
@@ -447,6 +490,11 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="container" id="footer">
+
+
         <div class="copy">
           <p>
             <a class="tooltip-top btn-sm"
@@ -456,14 +504,6 @@
               <i class="fa fa-creative-commons" aria-hidden="true"></i>
               <span class="sr-only">All content is shared under Creative Commons Attribution-NonCommercial 4.0 International License</span>
               2017 mayhem foundation
-            </a>
-          </p>
-          <p>
-            <a class="tooltip-top btn-sm"
-                href="http://mentalsmash.org"
-                target="_blank"
-                title="In case you're wondering who to blame for the mayhem">
-              from a mentalsmash.org idea
             </a>
           </p>
         </div>
@@ -497,7 +537,7 @@
             $('html, body').animate({
               scrollTop: $(target).offset().top
             }, 1000);
-          },0);
+          },200);
         }
 
         // console.log('scrolling to: %s',target);
@@ -543,6 +583,7 @@
       $('.menu-button').click(function(e){
         e.preventDefault();
         var target = $(e.target).attr('data-target');
+        console.log('data-target: %s',target);
         if (target !== window.location.hash) {
           currSection = target;
           scrollPage(target);
