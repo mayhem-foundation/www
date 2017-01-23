@@ -420,13 +420,19 @@
       //   toggle: false
       // });
       function scrollPage(target){
-        console.log('setting scrolling timeout');
-        setTimeout(function(){
-          console.log('scrolling to: %s',target);
-          $('html, body').animate({
-            scrollTop: $(target).offset().top
-          }, 1000);
-        },100);
+        if (target){
+          setTimeout(function(){
+            console.log('scrolling to: %s',target);
+            $('html, body').animate({
+              scrollTop: $(target).offset().top
+            }, 1000);
+          },0);
+        }
+
+        // console.log('scrolling to: %s',target);
+        // $('html, body').animate({
+        //   scrollTop: $(target).offset().top
+        // }, 1000);
       }
 
       function isHashSection(hash){
