@@ -116,7 +116,8 @@
       }
 
       .btn-primary:hover,
-      .btn-primary:focus {
+      .btn-primary:focus,
+      .btn-sec-open {
         color: rgb(180, 192, 209);
         background-color: rgb(0, 21, 51);
         border: 1px solid #D15D00;
@@ -714,6 +715,8 @@
           currSection = target;
           scrollPage(target);
           setHash(target);
+          $('[data-target="'+target+'"]').toggleClass('btn-sec-open');
+          // $(e.target).toggleClass('btn-sec-open');
         } else {
           currSection = null;
           setHash('');
@@ -722,9 +725,12 @@
       $('.section-close').click(function(e){
         e.preventDefault();
         var parent = $(e.target).attr('data-parent');
+        var target = $(e.target).attr('data-target');
         currSection = null;
         scrollPage(parent);
         setHash(parent);
+        console.log('closing: '+parent);
+        $('[data-target="'+target+'"]').removeClass('btn-sec-open');
       });
 
       $(window).on( 'hashchange',function(e) {
@@ -760,6 +766,7 @@
         var target = $(hash);
         collapse(target)
         scrollPage(hash);
+        $('[data-target="'+hash+'"]').toggleClass('btn-sec-open');
         console.log('section opened');
       }
     </script>
