@@ -643,6 +643,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/35acbe9500.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 
     <script type="text/javascript">
       $('[data-toggle="popover"]').popover();
@@ -652,10 +653,7 @@
       $('.tooltip-top').tooltip({
         placement: 'top'
       });
-      // $('.section').collapse({
-      //   parent: '#page',
-      //   toggle: false
-      // });
+
       function scrollPage(target){
         if (target){
           setTimeout(function(){
@@ -665,11 +663,6 @@
             }, 500);
           },0);
         }
-
-        // console.log('scrolling to: %s',target);
-        // $('html, body').animate({
-        //   scrollTop: $(target).offset().top
-        // }, 1000);
       }
 
       function isHashSection(hash){
@@ -683,15 +676,6 @@
       }
 
       function collapse(target){
-
-        // var open = target.attr('data-section-open');
-        // if (open) {
-        //   open = false;
-        // } else if (!open || open === ''){
-        //   open = true;
-        // }
-        // target.attr('data-section-open',open);
-
         try {
           target.collapse('toggle');
         } catch (e) {
@@ -710,18 +694,24 @@
       $('.menu-button').click(function(e){
         e.preventDefault();
         var target = $(e.target).attr('data-target');
-        console.log('data-target: %s',target);
+        console.log('click data-target: %s',target);
+
+        var buttons = $('[data-target="'+target+'"]');
+        _.each(buttons,function(b){
+          var button = $(b);
+          button.toggleClass('btn-sec-open');
+        });
+
         if (target !== window.location.hash) {
           currSection = target;
           scrollPage(target);
           setHash(target);
-          $('[data-target="'+target+'"]').toggleClass('btn-sec-open');
-          // $(e.target).toggleClass('btn-sec-open');
         } else {
           currSection = null;
           setHash('');
         }
       });
+
       $('.section-close').click(function(e){
         e.preventDefault();
         var parent = $(e.target).attr('data-parent');
