@@ -45,6 +45,10 @@
         padding: 1rem 1rem 0.5rem;
       }
 
+      .jumbotron .lead strong {
+        font-weight: bold;
+      }
+
       .btn-primary {
         background-color: rgb(0, 7, 17);
         border: 1px solid #152454;
@@ -191,17 +195,27 @@
           <div class="motto">
             <h1>Evolve free or die.</h1>
             <p class="lead">The future is not gonna wait for <strong>us</strong>.</p>
-            <p class="lead">Join the <strong>digital revolution</strong>.</p>
+            <p class="lead">Join the
+              <strong>
+                <a class="menu-button tooltip-bottom" data-target="#manifesto" data-parent="#page"
+                    href="#manifesto"
+                    data-toggle="collapse"
+                    role="button"
+                    title="Read our manifesto">
+                    <!-- <i class="fa fa-file-text" aria-hidden="true"></i> -->
+                    digital human revolution
+                </a>
+              </strong>.</p>
           </div>
           <hr class="my-4">
           <p class="lead">
             <ul class="list-inline menu">
               <li class="list-inline-item">
-                <a class="btn btn-primary btn-lg menu-button tooltip-bottom" data-target="#manifesto" data-parent="#page"
+                <a class="btn btn-primary btn-lg menu-button tooltip-bottom" data-target="#manifesto" data-parent="#body"
                     href="#manifesto"
                     data-toggle="collapse"
                     role="button"
-                    title="The digital revolution will end up nowhere without good aim">
+                    title="The digital human revolution will end up nowhere without good aim">
                     <i class="fa fa-file-text" aria-hidden="true"></i>
                     Manifesto
                 </a>
@@ -265,7 +279,7 @@
           </li>
           <li class="list-inline-item">
             <a class="btn btn-primary btn-sm menu-button tooltip-bottom" data-target="#donate" data-parent="#page"
-                title="Revolution ain't cheap"
+                title="Revolutions ain't cheap"
                 href="#donate"
                 role="button"
                 data-toggle="collapse">
@@ -291,13 +305,13 @@
               <a href="#donate">
                 <h2>
                   <i class="fa fa-money align-middle" aria-hidden="true"></i>
-                  <span class="align-middle">Revolution ain't cheap</span>
+                  <span class="align-middle">Revolutions ain't cheap</span>
                 </h2>
               </a>
             </div>
             <div class="card-body">
               <p>
-                Please consider helping us bring forth the <strong>digital revolution</strong>
+                Please consider helping us bring forth the <strong>digital human revolution</strong>
                 by donating through one of the following channels:
               </p>
               <ul class="list-inline buttons">
@@ -446,13 +460,13 @@
 
       function collapse(target){
 
-        var open = target.attr('data-section-open');
-        if (open) {
-          open = false;
-        } else if (!open || open === ''){
-          open = true;
-        }
-        target.attr('data-section-open',open);
+        // var open = target.attr('data-section-open');
+        // if (open) {
+        //   open = false;
+        // } else if (!open || open === ''){
+        //   open = true;
+        // }
+        // target.attr('data-section-open',open);
 
         try {
           target.collapse('toggle');
@@ -492,10 +506,11 @@
 
       $(window).on( 'hashchange',function(e) {
         var hash = window.location.hash;
-        if (isHashSection(hash) &&
-            (!currSection || hash !== currSection)) {
+        if (isHashSection(hash)) {
 
-          if (!isHashSection(currSection)) {
+          if (currSection &&
+              (!isHashSection(currSection)||
+                currSection === hash)) {
             currSection = hash;
             setHash(currSection);
             scrollPage(currSection);
@@ -503,9 +518,13 @@
           }
 
           currSection = hash;
-          var target = $(hash);
-          console.log('toggling: %s',hash);
-          collapse(target);
+          if (currSection &&
+              (!isHashSection(currSection)||
+                currSection !== hash)) {
+            var target = $(hash);
+            console.log('toggling: %s',hash);
+            collapse(target);
+          }
           scrollPage(hash);
         }
       });
