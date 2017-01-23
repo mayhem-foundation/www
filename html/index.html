@@ -150,10 +150,30 @@
       }
 
       .card-body {
-        padding: 2rem 2rem 2rem;
+        /*font-size: 140%;*/
+        padding: 4rem 2rem;
         border-radius: 10px;
         background-color: rgb(0, 21, 51);
-        /*border: 1px solid #D15D00;*/
+      }
+
+      .card-body p.rounded-top {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        padding-top: 3rem;
+      }
+
+      .card-body p.rounded-bottom {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding-bottom: 3rem;
+      }
+
+      .card-body p {
+        font-size: 150%;
+        background-color: rgb(180, 192, 209);
+        color: rgb(0, 7, 17);
+        margin-bottom: 0;
+        padding: 1rem 3rem;
       }
 
       .card-footer {
@@ -334,6 +354,10 @@
         margin-top: 2rem;
       }
 
+      #thanks .list {
+        padding-top: 2rem;
+      }
+
       .thanks dd {
         border-bottom-style: dotted;
         border-bottom-color: rgb(180, 192, 209);
@@ -376,8 +400,7 @@
           <h1>
             Evolve
             <a tabindex="0" class="wavy wavy-1 pointer"
-               data-container="#motto" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="(/'fri:dəm/) noun 1. The power or right to act, speak, or think as one wants without hindrance or restraint. 1.1 Absence of subjection to foreign domination or despotic government. 1.2 The power of self-determination attributed to the will; the quality of being independent of fate or necessity. 2. The state of not being imprisoned or enslaved. 2.1 The state of being unrestricted and able to move easily. 2.2 Unrestricted use of something."
-              title="freedom">freedom</a>
+               data-container="#motto" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="(/'fri:dəm/) noun 1. The power or right to act, speak, or think as one wants without hindrance or restraint. 1.1 Absence of subjection to foreign domination or despotic government. 1.2 The power of self-determination attributed to the will; the quality of being independent of fate or necessity. 2. The state of not being imprisoned or enslaved. 2.1 The state of being unrestricted and able to move easily. 2.2 Unrestricted use of something.">freedom</a>
             or&nbsp;die.
           </h1>
           <p class="lead"><s>The Future</s><strong class="tooltip-bottom"
@@ -469,7 +492,7 @@
             <div class="card-body coming-soon">
               <strong class="wavy wavy-4 tooltip-bottom pointer"
                 tabindex="0"
-                data-container="#manifesto" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Please bear with us while we write this document. We will provide all the details about digital human indipendence and the Mayhem Foundation as soon as they're ready. But we can't stress enough how important it is not to half-hassle this fundamental step of our revolution. There's too much at stake.">
+                data-container="#manifesto" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="We are working to release all information about our notion of 'digital human indipendence' and the purpose of the Mayhem Foundation as soon as possible. But it is of the utmost importance not to half-hassle this step of our revolution. There's too much at stake. So please bear with us while we finish writing this fundamental document.">
                 Coming soon
               </strong>.
             </div>
@@ -554,60 +577,63 @@
               </a>
             </div>
             <div class="card-body">
-              <p class="text-center">
+              <p class="rounded-top">
                 The <strong>Mayhem Foundation</strong>
                 relies on the help of many to run its operations.
               </p>
 
-              <p class="text-center">
-                We would like to thank<br>
-                and wish a long and prosperous life (<i class="fa fa-hand-spock-o align-middle" aria-hidden="true"></i>) to<br>
+              <p class="rounded-bottom">
+                We would like to thank
+                and wish a long and prosperous life (<i class="fa fa-hand-spock-o align-middle" aria-hidden="true"></i>) to
                 the following
                 <strong class="wavy wavy-4">people</strong>,
                 <strong class="wavy wavy-4">projects</strong> and
                 <strong class="wavy wavy-4">organizations</strong>:
               </p>
 
-              <dl class="thanks row">
-                <dt class="col-2">
-                  <a class="tooltip-bottom wavy wavy-4"
-                    name="FreeDNS"
-                    href="https://freedns.afraid.org"
-                    target="_blank"
-                    title="Go to homepage">
-                    afraid.org
-                  </a>
-                </dt>
-                <dd  class="col-10">
-                  Amazing, reliable, free DNS hosting.
-                </dd>
-                <dt class="col-2">
-                  <a class="tooltip-bottom wavy wavy-4"
-                    href="https://getbootstrap.com"
-                    target="_blank"
-                    title="Go to homepage">
-                    Bootstrap
-                  </a>
-                </dt>
-                <dd class="col-10">
-                  In their own words:
-                  <blockquote class="blockquote">
-                    The most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.
-                  </blockquote>
-                  In ours: just awesome goodness.
-                </dd>
-                <dt class="col-2">
-                  <a class="tooltip-bottom wavy wavy-4"
-                    href="http://fontawesome.io/"
-                    target="_blank"
-                    title="Go to homepage">
-                    Font Awesome
-                  </a>
-                </dt>
-                <dd class="col-10">
-                  A beautiful set of free, modern icons for elegant UIs.
-                </dd>
-              </dl>
+              <div class="list">
+                  <dl class="thanks row">
+                    <dt class="col-2">
+                      <a class="tooltip-bottom wavy wavy-4"
+                        name="FreeDNS"
+                        href="https://freedns.afraid.org"
+                        target="_blank"
+                        title="Go to homepage">
+                        afraid.org
+                      </a>
+                    </dt>
+                    <dd  class="col-10">
+                      Amazing, reliable, free DNS hosting.
+                    </dd>
+                    <dt class="col-2">
+                      <a class="tooltip-bottom wavy wavy-4"
+                        href="https://getbootstrap.com"
+                        target="_blank"
+                        title="Go to homepage">
+                        Bootstrap
+                      </a>
+                    </dt>
+                    <dd class="col-10">
+                      In their own words:
+                      <blockquote class="blockquote">
+                        The most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.
+                      </blockquote>
+                      In ours: just awesome goodness.
+                    </dd>
+                    <dt class="col-2">
+                      <a class="tooltip-bottom wavy wavy-4"
+                        href="http://fontawesome.io/"
+                        target="_blank"
+                        title="Go to homepage">
+                        Font Awesome
+                      </a>
+                    </dt>
+                    <dd class="col-10">
+                      A beautiful set of free, modern icons for elegant UIs.
+                    </dd>
+                  </dl>
+              </div>
+
             </div>
             <div class="card-footer">
               <a class="btn btn-primary btn-sm section-close tooltip-bottom" data-target="#thanks" data-parent="#motto"
