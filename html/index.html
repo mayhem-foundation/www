@@ -445,12 +445,26 @@
       }
 
       function collapse(target){
+
+        var open = target.attr('data-section-open');
+        if (open) {
+          open = false;
+        } else if (!open || open === ''){
+          open = true;
+        }
+        target.attr('data-section-open',open);
+
         try {
           target.collapse('toggle');
         } catch (e) {
           console.log('IGNORING bootstrap error:');
           console.error(e.stack);
         }
+      }
+
+      function setHash(hash){
+        console.log('setting hash: %s',hash);
+        window.location.hash = hash;
       }
 
       var currSection = window.location.hash;
@@ -460,30 +474,39 @@
         var target = $(e.target).attr('data-target');
         if (target !== window.location.hash) {
           currSection = target;
-          window.location.hash = target;
           scrollPage(target);
+          setHash(target);
         } else {
           currSection = null;
-          window.location.hash = '';
+          setHash('');
         }
       });
       $('.section-close').click(function(e){
         e.preventDefault();
         var parent = $(e.target).attr('data-parent');
         currSection = null;
-        window.location.hash = parent;
+        // window.location.hash = parent;
         scrollPage(parent);
+        setHash(parent);
       });
 
       $(window).on( 'hashchange',function(e) {
         var hash = window.location.hash;
         if (isHashSection(hash) &&
             (!currSection || hash !== currSection)) {
+
+          if (!isHashSection(currSection)) {
+            currSection = hash;
+            setHash(currSection);
+            scrollPage(currSection);
+            return;
+          }
+
           currSection = hash;
           var target = $(hash);
           console.log('toggling: %s',hash);
           collapse(target);
-          scrollPage(target);
+          scrollPage(hash);
         }
       });
 
