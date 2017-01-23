@@ -78,7 +78,7 @@
       .jumbotron {
         background-color: rgb(0, 7, 17);
         padding: 5rem 0 5rem;
-        margin: 2rem 0 3rem;
+        margin: 2rem 0 2.5rem;
         text-align: center;
         border-radius: 10px;
         background-color: rgb(0, 21, 51);
@@ -280,10 +280,9 @@
       #header .subtitle {
         vertical-align: middle;
         padding: .1rem .5rem .2rem;
-        margin-bottom: 0;
-        border: 1px solid #D15D00;
+        /*border: 1px solid #D15D00;*/
         display: inline-block;
-        border-radius: 5px;
+        /*border-radius: 5px;*/
       }
 
       #header .subtitle .wavy {
@@ -366,7 +365,7 @@
   <body>
     <div id="page">
       <div class="container-fluid sticky-top" id="header">
-        <h1 class="wavy wavy-3">
+        <h1>
         <!-- <h1> -->
           <a class="tooltip-bottom"
               href=""
@@ -374,9 +373,13 @@
             the mayhem foundation
           </a>
         </h1>
-        <p class="subtitle tooltip-bottom"
+        <p class="subtitle wavy wavy-3 tooltip-bottom"
             title="No more running">
-          Evolve freedom or die
+          <a class="menu-button" data-target="#manifesto" data-parent="#page"
+              data-toggle="collapse"
+              href="#manifesto">
+            Evolve freedom or die
+          </a>
         </p>
 
 
