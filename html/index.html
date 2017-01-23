@@ -105,6 +105,11 @@
 
       .menu {
         padding-bottom: 1rem;
+        text-align: center;
+      }
+
+      .coming-soon {
+        text-align: center;
       }
 
       #page {
@@ -113,6 +118,7 @@
       }
 
       #header {
+        text-align: center;
         padding-top: 1rem;
         padding-bottom: 1rem;
         border-top: 1px solid #152454;
@@ -166,10 +172,6 @@
       #donate .buttons {
         margin-top: 2rem;
       }
-
-      #thanks .card-body {
-        text-align: center;
-      }
     </style>
 
   </head>
@@ -195,10 +197,9 @@
           <p class="lead">
             <ul class="list-inline menu">
               <li class="list-inline-item">
-                <a class="btn btn-primary btn-lg menu-button tooltip-bottom"
+                <a class="btn btn-primary btn-lg menu-button tooltip-bottom" data-target="#manifesto" data-parent="#page"
                     href="#manifesto"
                     data-toggle="collapse"
-                    data-target="#manifesto"
                     role="button"
                     title="The digital revolution will end up nowhere without good aim">
                     <i class="fa fa-file-text" aria-hidden="true"></i>
@@ -219,31 +220,32 @@
           </p>
         </div>
 
-        <div class="collapse fade section" id="manifesto">
-          <div class="card">
-            <div class="card-header">
-              <a href="#manifesto">
-                <h2>
-                    <i class="fa fa-file-text align-middle" aria-hidden="true"></i>
-                    <p>
-                      The Digital Revolution<br>
-                       Manifesto
-                    </p>
-                </h2>
-              </a>
-            </div>
-            <div class="card-body">
-              Coming soon.
-            </div>
-            <div class="card-footer">
-              <a class="btn btn-primary btn-sm section-close"
-                  href="#"
-                  title="Hide"
-                  data-toggle="collapse"
-                  data-target="#manifesto">
-                  <i class="fa fa-angle-up" aria-hidden="true"></i> hide
-                  <span class="sr-only">Hide</span>
-              </a>
+        <div id="content">
+          <div class="collapse fade section" id="manifesto">
+            <div class="card">
+              <div class="card-header">
+                <a href="#manifesto">
+                  <h2>
+                      <i class="fa fa-file-text align-middle" aria-hidden="true"></i>
+                      <p>
+                        The Digital Revolution<br>
+                         Manifesto
+                      </p>
+                  </h2>
+                </a>
+              </div>
+              <div class="card-body coming-soon">
+                Coming soon.
+              </div>
+              <div class="card-footer">
+                <a class="btn btn-primary btn-sm section-close" data-target="#manifesto" data-parent="#body"
+                    title="Hide"
+                    href="#"
+                    data-toggle="collapse">
+                    <i class="fa fa-angle-up" aria-hidden="true"></i> hide
+                    <span class="sr-only">Hide</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -252,34 +254,31 @@
       <div class="container" id="footer">
         <ul class="list-inline menu">
           <li class="list-inline-item">
-            <a class="btn btn-primary btn-sm tooltip-bottom"
+            <a class="btn btn-primary btn-sm tooltip-bottom" data-target="#contact" data-parent="#page"
+                title="Drop an email if you want to learn more"
                 href="mailto:evolve@mayhem.foundation"
                 target="_blank"
-                data-target="#contact"
-                title="Drop an email if you want to learn more"
                 role="button">
               <i class="fa fa-envelope-o" aria-hidden="true"></i>
               Get in touch
             </a>
           </li>
           <li class="list-inline-item">
-            <a class="btn btn-primary btn-sm menu-button tooltip-bottom"
+            <a class="btn btn-primary btn-sm menu-button tooltip-bottom" data-target="#donate" data-parent="#page"
+                title="Revolution ain't cheap"
                 href="#donate"
                 role="button"
-                data-toggle="collapse"
-                data-target="#donate"
-                title="Revolution ain't cheap">
+                data-toggle="collapse">
                 <i class="fa fa-money" aria-hidden="true"></i>
                 Donate
               </a>
           </li>
           <li class="list-inline-item">
-            <a class="btn btn-primary btn-sm menu-button tooltip-bottom"
-                href="#thanks"
-                role="button"
+            <a class="btn btn-primary btn-sm menu-button tooltip-bottom" data-target="#thanks" data-parent="#page"
+                title="We couldn't do this alone"
                 data-toggle="collapse"
-                data-target="#thanks"
-                title="We couldn't do this alone">
+                role="button"
+                href="#thanks">
                 <i class="fa fa-hand-spock-o" aria-hidden="true"></i>
                 Thanks
               </a>
@@ -316,11 +315,10 @@
               </ul>
             </div>
             <div class="card-footer">
-              <a <a class="btn btn-primary btn-sm section-close"
+              <a class="btn btn-primary btn-sm section-close" data-target="#donate" data-parent="#footer"
                   href="#"
                   title="Hide"
-                  data-toggle="collapse"
-                  data-target="#donate">
+                  data-toggle="collapse">
                   <i class="fa fa-angle-up" aria-hidden="true"></i> hide
                   <span class="sr-only">Hide</span>
               </a>
@@ -368,11 +366,10 @@
               </dl>
             </div>
             <div class="card-footer">
-              <a class="btn btn-primary btn-sm section-close"
+              <a class="btn btn-primary btn-sm section-close" data-target="#thanks" data-parent="#footer"
                   href="#"
                   title="Hide"
-                  data-toggle="collapse"
-                  data-target="#manifesto">
+                  data-toggle="collapse">
                   <i class="fa fa-angle-up" aria-hidden="true"></i> hide
                   <span class="sr-only">Hide</span>
               </a>
@@ -418,35 +415,70 @@
       $('.tooltip-top').tooltip({
         placement: 'top'
       });
-      $('.section').collapse({
-        parent: '#body',
-        toggle: false
-      });
+      // $('.section').collapse({
+      //   parent: '#page',
+      //   toggle: false
+      // });
+      function scrollPage(target){
+        setTimeout(function(){
+          console.log('scrolling to: %s',target);
+          $('html, body').animate({
+            scrollTop: $(target).offset().top
+          }, 1000);
+        },100);
+      }
+
+      function isHashSection(hash){
+        return hash && hash !== '' &&
+            hash !== '#page' &&
+            hash !== '#header' &&
+            hash !== '#body' &&
+            hash !== '#content' &&
+            hash !== '#footer';
+      }
+
+      var currSection = window.location.hash;
+
       $('.menu-button').click(function(e){
         e.preventDefault();
         var target = $(e.target).attr('data-target');
         if (target !== window.location.hash) {
+          currSection = target;
           window.location.hash = target;
+          scrollPage(target);
         } else {
+          currSection = null;
           window.location.hash = '';
         }
       });
       $('.section-close').click(function(e){
         e.preventDefault();
-        console.log('clearing hash');
-        window.location.hash = '';
+        var parent = $(e.target).attr('data-parent');
+        currSection = null;
+        window.location.hash = parent;
+        scrollPage(parent);
       });
-      var hash = window.location.hash;
-      console.log('toggling section: %s',hash);
-      if (hash) {
-        $(hash).collapse('toggle');
-      }
-      $(window).on( 'hashchange', function(e) {
-        $('.section').collapse('hide')
+
+      $(window).on( 'hashchange',function(e) {
         var hash = window.location.hash;
+        if (isHashSection(hash) &&
+            (!currSection || hash !== currSection)) {
+          currSection = hash;
+          var target = $(hash);
+          console.log('toggling: %s',hash);
+          target.collapse('toggle');
+          scrollPage(target);
+        }
+      });
+
+      /* open section from browser URL */
+      var hash = window.location.hash;
+      if (isHashSection(hash)) {
+        currSection = hash;
         var target = $(hash);
         target.collapse('toggle');
-      });
+        scrollPage(hash);
+      }
     </script>
   </body>
 </html>
