@@ -28,7 +28,8 @@
         color: rgb(180, 192, 209);
       }
 
-      a:hover {
+      a:hover,
+      a:focus {
         text-decoration: none;
         color: rgb(180, 192, 209);
       }
@@ -124,6 +125,33 @@
         font-size: 90%;
       }
 
+      .popover {
+        /*border: 1px solid #152454;*/
+        border: 2px solid #D15D00;
+        border-radius: 8px
+      }
+
+      .popover-title {
+        background-color: #D15D00;
+        color: rgb(0, 21, 51);
+        font-weight: bolder;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+        /*border: 1px solid #D15D00;*/
+      }
+
+      .popover-title h3 {
+        /*background-color: rgb(0, 7, 17);*/
+        border-bottom: 1px solid #D15D00;
+      }
+
+      .popover-content {
+        background-color: rgb(0, 21, 51);
+        border: 3px solid rgb(0, 21, 51);
+        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
+
       i.fa {
         margin-right: 0.5rem;
         display: inline-block;
@@ -157,6 +185,10 @@
 
       .coming-soon {
         text-align: center;
+      }
+
+      .pointer {
+        cursor: pointer;
       }
 
       .wavy {
@@ -297,13 +329,13 @@
         <!-- <h1> -->
           <a class="tooltip-bottom"
               href=""
-              title="Go to homepage">
+              title="We aim to misbehave">
             the mayhem foundation
           </a>
         </h1>
         <p class="subtitle tooltip-bottom"
-            title="We aim to misbehave.">
-          Evolve free or die
+            title="No more running">
+          Evolve freedom or die
         </p>
 
 
@@ -312,8 +344,9 @@
         <div class="jumbotron">
           <h1>
             Evolve
-            <span class="wavy wavy-1 tooltip-bottom"
-              title="We aim to misbehave.">free</span>
+            <a tabindex="0" class="wavy wavy-1 pointer"
+               data-container="body" data-toggle="popover" data-placement="bottom" data-content="(/'fri:dəm/) noun 1. The power or right to act, speak, or think as one wants without hindrance or restraint. 1.1 Absence of subjection to foreign domination or despotic government. 1.2 The power of self-determination attributed to the will; the quality of being independent of fate or necessity. 2. The state of not being imprisoned or enslaved. 2.1 The state of being unrestricted and able to move easily. 2.2 Unrestricted use of something."
+              title="freedom">freedom</a>
             or die.</h1>
           <p class="lead"><s>The Future</s><strong class="tooltip-bottom"
             title="The Past is gone forever too">Today</strong> is not waiting for
@@ -474,7 +507,6 @@
                   <i class="fa fa-angle-up" aria-hidden="true"></i> top
                   <span class="sr-only">top</span>
               </a>
-              </a>
             </div>
           </div>
         </div>
@@ -557,7 +589,6 @@
                   <i class="fa fa-angle-up" aria-hidden="true"></i> top
                   <span class="sr-only">top</span>
               </a>
-              </a>
             </div>
           </div>
         </div>
@@ -591,6 +622,7 @@
     <script src="https://use.fontawesome.com/35acbe9500.js"></script>
 
     <script type="text/javascript">
+      $('[data-toggle="popover"]').popover();
       $('.tooltip-bottom').tooltip({
         placement: 'bottom'
       });
