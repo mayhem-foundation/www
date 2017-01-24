@@ -81,6 +81,7 @@ Section.prototype.open = function () {
 
   if (this.isOpen) {
     console.log('section '+this.id+' already open');
+    this.el.trigger('shown.bs.collapse');
     return;
   }
 
@@ -98,6 +99,7 @@ Section.prototype.close = function () {
 
   if (!this.isOpen) {
     console.log('section '+this.id+' already closed');
+    this.el.trigger('hidden.bs.collapse');
     return;
   }
 
