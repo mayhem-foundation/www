@@ -31,6 +31,7 @@
 #header .subtitle a {
   padding: .3rem .3rem .1rem;
   display: inline-block;
+  font-weight: bolder;
 }
 
 #body {
@@ -68,9 +69,10 @@
   padding: 0 1rem 1.5rem;
 }
 
-#motto .wavy {
+#motto a.wavy {
   padding: .3rem .3rem .1rem;
   display: inline-block;
+  font-weight: bold;
 }
 
 #footer {
