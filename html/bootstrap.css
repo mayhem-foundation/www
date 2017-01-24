@@ -56,7 +56,6 @@ s {
 .btn-primary {
   background-color: rgb(0, 7, 17);
   border: 1px solid rgb(180, 192, 209);
-  /*border: 1px solid rgb(180, 192, 209);*/
 }
 
 .btn-primary:hover,
@@ -97,7 +96,6 @@ s {
 }
 
 .card-body {
-  /*font-size: 140%;*/
   padding: 4rem 2rem;
   border-radius: 10px;
   background-color: rgb(0, 21, 51);
@@ -135,8 +133,7 @@ s {
 }
 
 .popover {
-  /*border: 2px solid #D15D00;*/
-  /*border-radius: 8px;*/
+
 }
 
 .popover-title {

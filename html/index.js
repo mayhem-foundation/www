@@ -154,6 +154,11 @@ Section.prototype.start = function () {
 
 
 var Interface = function(intfId,sectionIDs){
+  this.opts = {
+    scroll: {
+      duration: 200,
+    }
+  };
   this.id = intfId;
   this.selector = '#'+this.id;
   this.currentSection = null;
@@ -162,6 +167,7 @@ var Interface = function(intfId,sectionIDs){
     var sec = new Section(this,id);
     return sec;
   },this));
+  this.documentTitle = '';
 };
 
 Interface.prototype.scrollTo = function (to,cb) {
@@ -171,7 +177,7 @@ Interface.prototype.scrollTo = function (to,cb) {
   try {
     $('html, body').animate({
       scrollTop: target.offset().top
-    }, 500, function() {
+    }, this.opts.scroll.duration, function() {
       console.log('scrolling to %s completed: %s',to);
       cb();
     });
@@ -188,34 +194,40 @@ Interface.prototype.isHashSection = function (hash) {
 };
 
 Interface.prototype.setHash = function (hash) {
-  console.log('setting hash: %s',hash);
-  if (hash === '') {
-    // if ("pushState" in history) {
-    //   history.pushState(hash,
-    //     document.title,
-    //     window.location.pathname + hash + window.location.search);
-    // } else {
-      var scrollV, scrollH;
-      // Prevent scrolling by storing the page's current scroll offset
-      scrollV = document.body.scrollTop;
-      scrollH = document.body.scrollLeft;
+  var curHash = window.location.hash;
+  console.log('setting hash to: %s (cur=%s)',hash,curHash);
 
-      window.location.hash = '';
-
-      // Restore the scroll offset, should be flicker free
-      document.body.scrollTop = scrollV;
-      document.body.scrollLeft = scrollH;
-      console.log('cleared hash');
-    // }
-  } else {
-    window.location.hash = hash;
+  if (curHash === hash) {
+    return;
   }
-  console.log('setting hash done');
+
+  if ('pushState' in history) {
+    history.pushState(hash,
+      document.title,
+      window.location.pathname + hash + window.location.search);
+  } else {
+    var scrollV, scrollH;
+    // Prevent scrolling by storing the page's current scroll offset
+    scrollV = document.body.scrollTop;
+    scrollH = document.body.scrollLeft;
+
+    window.location.hash = hash;
+
+    // Restore the scroll offset, should be flicker free
+    document.body.scrollTop = scrollV;
+    document.body.scrollLeft = scrollH;
+    console.log('cleared hash');
+  }
+  console.log('hash set');
+
+  if (!this.isHashSection(hash)) {
+    this.scrollTo(this.selector);
+  }
 };
 
 Interface.prototype.onHashChanged = function(e){
   var hash = window.location.hash;
-  return this.openSection(hash);
+  this.openSection(hash);
 };
 
 Interface.prototype.openSection = function(selector) {
@@ -234,6 +246,7 @@ Interface.prototype.openedSection = function (sec) {
   if (this.currentSection !== sec.id) {
     this.currentSection = sec.id;
     this.setHash(sec.selector);
+    document.title = [this.documentTitle,'-',sec.id].join(' ');
   }
 };
 
@@ -244,6 +257,7 @@ Interface.prototype.closedSection = function (sec) {
 
   if (hash === sec.selector){
     this.setHash('');
+    document.title = this.documentTitle;
   }
 
   if (this.currentSection === sec.id) {
@@ -267,13 +281,12 @@ Interface.prototype.start = function () {
     console.log('starting section %s',sec.id);
     sec.start();
   },this));
-  if (window) {
-    /* open section from browser URL */
-    var hash = window.location.hash;
-    console.log('starting interface on section: %s',hash);
-    this.openSection(hash);
-    $(window).on( 'hashchange',_.bind(this.onHashChanged,this));
-  }
+  this.documentTitle = document.title;
+  /* open section from browser URL */
+  var hash = window.location.hash;
+  console.log('starting interface on section: %s',hash);
+  this.openSection(hash);
+  $(window).on( 'hashchange',_.bind(this.onHashChanged,this));
 };
 
 var mayhem = {
