@@ -1,6 +1,7 @@
 'use strict';
 
 if (!window) {
+  var Handlebars = require('handlebars');
   var _ = require('underscore');
   var $ = require('jquery');
   var noop = function(id){
@@ -15,6 +16,7 @@ if (!window) {
 } else {
   var _ = window._;
   var $ = window.$;
+  var Handlebars = window.Handlebars;
 }
 
 var Section = function(intf,id) {
@@ -153,7 +155,7 @@ Section.prototype.start = function () {
 
 
 
-var Interface = function(intfId,sectionIDs){
+var Interface = function(intfId,sections){
   this.opts = {
     scroll: {
       duration: 200,
@@ -162,7 +164,7 @@ var Interface = function(intfId,sectionIDs){
   this.id = intfId;
   this.selector = '#'+this.id;
   this.currentSection = null;
-  this.sections = _.map(sectionIDs,_.bind(function(id){
+  this.sections = _.map(sections,_.bind(function(secData,id){
     console.log('creating section %s',id);
     var sec = new Section(this,id);
     return sec;
@@ -289,13 +291,21 @@ Interface.prototype.start = function () {
   $(window).on( 'hashchange',_.bind(this.onHashChanged,this));
 };
 
+var templates = $('script.template');
+
 var mayhem = {
   Interface: Interface,
   Section: Section,
   interface: 'page',
-  sections: [
-    'manifesto',
-    'donate',
-    'thanks'
-  ]
+  sections: {
+    'manifesto':{
+
+    },
+    'donate': {
+
+    },
+    'thanks': {
+
+    }
+  }
 };

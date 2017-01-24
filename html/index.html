@@ -147,13 +147,6 @@
                   <i class="fa fa-angle-up" aria-hidden="true"></i> hide
                   <span class="sr-only">Hide</span>
               </a>
-              <!-- <a class="btn btn-primary btn-sm tooltip-bottom section-scroll"
-                  data-from="#manifesto" data-to="#nav"
-                  href="#"
-                  title="Back to menu">
-                  <i class="fa fa-angle-up" aria-hidden="true"></i> menu
-                  <span class="sr-only">menu</span>
-              </a> -->
               <a class="btn btn-primary btn-sm tooltip-bottom section-scroll"
                   data-from="#manifesto" data-to="#page"
                   href="#"
@@ -206,13 +199,6 @@
                   <i class="fa fa-angle-up" aria-hidden="true"></i> hide
                   <span class="sr-only">Hide</span>
               </a>
-              <!-- <a class="btn btn-primary btn-sm tooltip-bottom section-scroll"
-                  data-from="#donate" data-to="#nav"
-                  href="#"
-                  title="Back to menu">
-                  <i class="fa fa-angle-up" aria-hidden="true"></i> menu
-                  <span class="sr-only">menu</span>
-              </a> -->
               <a class="btn btn-primary btn-sm tooltip-bottom section-scroll"
                   data-from="#donate" data-to="#page"
                   href="#"
@@ -302,13 +288,6 @@
                   <i class="fa fa-angle-up" aria-hidden="true"></i> hide
                   <span class="sr-only">hide</span>
               </a>
-              <!-- <a class="btn btn-primary btn-sm tooltip-bottom section-scroll"
-                  data-from="#thanks" data-to="#nav"
-                  href="#"
-                  title="Back to menu">
-                  <i class="fa fa-angle-up" aria-hidden="true"></i> menu
-                  <span class="sr-only">menu</span>
-              </a> -->
               <a class="btn btn-primary btn-sm tooltip-bottom section-scroll"
                   data-from="#thanks" data-to="#page"
                   href="#"
@@ -337,6 +316,44 @@
       </div>
     </div>
 
+    <!-- template  -->
+    <script id="tmpl-section" type="text/template">
+      <div class="collapse fade section" id="{{id}}"
+            aria-hidden="true">
+        <div class="card">
+          <div class="card-header">
+            <a href="#{{id}}">
+              <h2>
+                <i class="fa fa-{{icon}} align-middle" aria-hidden="true"></i>
+                <p>
+                  {{title}}
+                </p>
+              </h2>
+            </a>
+          </div>
+          <div class="card-body text-center">
+            {{{body}}}
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-primary btn-sm section-close tooltip-bottom"
+                data-target="{{id}}"
+                href="#"
+                title="Hide section">
+                <i class="fa fa-angle-up" aria-hidden="true"></i> hide
+                <span class="sr-only">Hide</span>
+            </a>
+            <a class="btn btn-primary btn-sm tooltip-bottom section-scroll"
+                data-from="#{{id}}" data-to="#{{parent}}"
+                href="#"
+                title="Back to top">
+                <i class="fa fa-angle-up" aria-hidden="true"></i> top
+                <span class="sr-only">top</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </script>
+
 
     <script
 			  src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -346,6 +363,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/35acbe9500.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
