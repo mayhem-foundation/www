@@ -67,9 +67,13 @@
 }
 
 #motto a.wavy {
-  padding: .3rem .3rem .1rem;
+  padding: .3rem 0 .1rem;
   display: inline-block;
   font-weight: bold;
+}
+
+#motto a.wavy-1 {
+  padding-left: .2rem;
 }
 
 #footer {

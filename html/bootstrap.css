@@ -208,11 +208,11 @@ h2 i.fa {
   border-bottom-style: dotted;
   border-bottom-color: #D15D00;
   display: inline-block;
-  padding: .2rem .2rem;
+  padding: .2rem .2rem .1rem;
 }
 
 .wavy-1 {
-  border-bottom-width: 10px;
+  border-bottom-width: 12px;
 }
 
 .wavy-2 {
@@ -226,4 +226,3 @@ h2 i.fa {
 .wavy-4 {
   border-bottom-width: 2px;
 }
-
