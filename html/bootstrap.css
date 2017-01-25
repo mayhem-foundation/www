@@ -114,26 +114,6 @@ h1 .btn-sec-open {
   margin-bottom: 0;
 }
 
-/*.card-body p.rounded-top {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  padding-top: 3rem;
-}
-
-.card-body p.rounded-bottom {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  padding-bottom: 3rem;
-}
-
-.card-body p {
-  font-size: 150%;
-  background-color: rgb(180, 192, 209);
-  color: rgb(0, 7, 17);
-  margin-bottom: 0;
-  padding: 1rem 3rem;
-}*/
-
 .card-footer {
   text-align: right;
   background-color: rgb(0, 7, 17);
