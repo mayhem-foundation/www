@@ -57,14 +57,13 @@
         </ul>
         <ul class="list-inline menu">
           <li class="list-inline-item">
-            <a class="btn btn-primary btn-sm tooltip-bottom"
-                data-target="#contact"
-                title="Drop an email"
-                href="mailto:evolvefree@mayhem.foundation"
-                target="_blank"
+            <a class="btn btn-primary btn-sm section-open tooltip-bottom"
+                data-target="#contacts"
+                href="#contact"
+                title="Get in touch with us"
                 role="button">
               <i class="fa fa-envelope-o" aria-hidden="true"></i>
-              Get in touch
+              Contacts
             </a>
           </li>
           <li class="list-inline-item">
@@ -159,6 +158,92 @@
             </div>
           </div>
         </div>
+
+        <div class="collapse fade section" id="contacts">
+          <div class="card">
+            <div class="card-header">
+              <a href="#contacts">
+                <h2>
+                    <i class="fa fa-envelope-o align-middle" aria-hidden="true"></i>
+                    <p>
+                      Contact<br>
+                      the<br>
+                      Mayhem Foundation
+                    </p>
+                </h2>
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="text-content">
+                <p class="">
+                  You can get in touch with us at the <strong>Mayhem Foundation</strong>
+                  either by dropping a <strong>good ol' fashioned email</strong> to
+                </p>
+                <p class="text-center">
+                  <a class="tooltip-bottom"
+                    href="mailto:evolvefree@mayhem.foundation"
+                    target="_blank"
+                    title="Click to write">
+                    <i class="fa fa-envelope-o " aria-hidden="true"></i>
+                    evolvefree@mayhem.foundation
+                  </a>
+                </p>
+                <p>
+                  or by keeping track of us through one of
+                  the following <strong>social media channels</strong>.
+                </p>
+                <div class="text-center">
+                  <ul class="list-inline" id="socialmedia">
+                    <li class="list-inline-item">
+                        <a class="tooltip-bottom"
+                        href="https://github.com/mayhem-foundation"
+                        target="_blank"
+                        title="Go to our GitHub page">
+                        <i class="fa fa-github-square fa-4x align-middle" aria-hidden="true"></i>
+                        <span class="sr-only">GitHub</span>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a class="tooltip-bottom"
+                        href="https://facebook.com/mayhem.foundation"
+                        target="_blank"
+                        title="Go to our Facebook page">
+                        <i class="fa fa-facebook-official fa-4x align-middle" aria-hidden="true"></i>
+                        <span class="sr-only">Facebook</span>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="tooltip-bottom"
+                        href="https://twitter.com/MayhemAhead"
+                        target="_blank"
+                        title="Go to our Twitter stream">
+                        <i class="fa fa-twitter-square fa-4x align-middle" aria-hidden="true"></i>
+                        <span class="sr-only">Twitter</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-primary btn-sm section-close"
+                  data-target="#contacts"
+                  title="Close section"
+                  href="#">
+                  <i class="fa fa-angle-up" aria-hidden="true"></i> close
+                  <span class="sr-only">Close</span>
+              </a>
+              <a class="btn btn-primary btn-sm section-scroll"
+                  data-from="#contacts" data-to="#page"
+                  href="#"
+                  title="Back to top">
+                  <i class="fa fa-angle-up" aria-hidden="true"></i> top
+                  <span class="sr-only">top</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div class="collapse fade section" id="donate"
             tabindex="-1" role="dialog" aria-hidden="true">
           <div class="card">
@@ -322,45 +407,6 @@
         </div>
       </div>
     </div>
-
-    <!-- template  -->
-    <script id="tmpl-section" type="text/template">
-      <div class="collapse fade section" id="{{id}}"
-            aria-hidden="true">
-        <div class="card">
-          <div class="card-header">
-            <a href="#{{id}}">
-              <h2>
-                <i class="fa fa-{{icon}} align-middle" aria-hidden="true"></i>
-                <p>
-                  {{title}}
-                </p>
-              </h2>
-            </a>
-          </div>
-          <div class="card-body text-center">
-            {{{body}}}
-          </div>
-          <div class="card-footer">
-            <a class="btn btn-primary btn-sm section-close tooltip-bottom"
-                data-target="{{id}}"
-                href="#"
-                title="Close section">
-                <i class="fa fa-angle-up" aria-hidden="true"></i> close
-                <span class="sr-only">Close</span>
-            </a>
-            <a class="btn btn-primary btn-sm tooltip-bottom section-scroll"
-                data-from="#{{id}}" data-to="#{{parent}}"
-                href="#"
-                title="Back to top">
-                <i class="fa fa-angle-up" aria-hidden="true"></i> top
-                <span class="sr-only">top</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </script>
-
 
     <script
 			  src="https://code.jquery.com/jquery-3.1.1.min.js"

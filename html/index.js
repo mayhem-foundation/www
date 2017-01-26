@@ -291,14 +291,15 @@ Interface.prototype.start = function () {
   $(window).on( 'hashchange',_.bind(this.onHashChanged,this));
 };
 
-var templates = $('script.template');
-
 var mayhem = {
   Interface: Interface,
   Section: Section,
   interface: 'page',
   sections: {
     'manifesto':{
+
+    },
+    'contacts': {
 
     },
     'donate': {

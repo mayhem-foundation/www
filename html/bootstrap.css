@@ -111,7 +111,12 @@ h1 .btn-sec-open {
   font-size: 150%;
   background-color: rgb(180, 192, 209);
   color: rgb(0, 7, 17);
-  margin-bottom: 0;
+  margin-bottom: 1rem;
+}
+
+.card-body .text-content a {
+  color: rgb(0, 7, 17);
+  font-weight: bolder;
 }
 
 .card-footer {
