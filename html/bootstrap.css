@@ -31,7 +31,10 @@ a:focus {
   text-align: center;
   border-radius: 10px;
   background-color: rgb(0, 21, 51);
-  border-radius: 10px;
+  border-radius: 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom: 1px solid #D15D00;
 }
 
 p.lead strong {
@@ -55,7 +58,10 @@ s {
 
 .btn-primary {
   background-color: rgb(0, 7, 17);
+  border-radius: 7px;
   border: 1px solid rgb(180, 192, 209);
+  background-color: rgb(0, 21, 51);
+  border: 1px solid rgb(0, 7, 17);
 }
 
 .btn-primary:hover,
@@ -88,10 +94,10 @@ h1 .btn-sec-open {
 
 .card {
   background-color: rgb(0, 7, 17);
-  margin: 4rem 0 0rem;
+  margin: 4rem auto 2rem;
   padding: 4rem 3rem;
-  border-top: 1px solid rgb(180, 192, 209);
-  border-bottom: 1px solid rgb(180, 192, 209);
+  border-top: 3px dotted #D15D00;
+  border-bottom: 3px dotted #D15D00;
 }
 
 .card-header {
@@ -206,7 +212,7 @@ h2 i.fa {
 }
 
 .menu {
-  padding-bottom: 1rem;
+  padding: 0.3rem 0;
   text-align: center;
 }
 
