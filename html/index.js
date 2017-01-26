@@ -19,7 +19,7 @@ if (!window) {
   var Handlebars = window.Handlebars;
 }
 
-$.fn.collapse.Constructor.TRANSITION_DURATION = 100;
+$.fn.collapse.Constructor.TRANSITION_DURATION = 50;
 
 var Section = function(intf,id) {
   this.opts = {
@@ -158,7 +158,7 @@ Section.prototype.start = function () {
 var Interface = function(intfId,sections){
   this.opts = {
     scroll: {
-      duration: 200,
+      duration: 50,
     }
   };
   this.id = intfId;
