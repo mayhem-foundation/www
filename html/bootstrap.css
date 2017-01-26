@@ -97,8 +97,7 @@ h1 .btn-sec-open {
 .card {
   background-color: rgb(0, 7, 17);
   margin: 4rem auto 2rem;
-  padding: 4rem 3rem;
-  padding: 0 3rem;
+  padding: 0;
   border-radius: 0;
   border-top: 3px dotted #D15D00;
   border-bottom: 1px solid #D15D00;
@@ -112,7 +111,7 @@ h1 .btn-sec-open {
 
 .card-body {
   padding: 4rem 2rem;
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: rgb(0, 21, 51);
 }
 
