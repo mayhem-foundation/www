@@ -177,6 +177,7 @@ Interface.prototype.scrollTo = function (to,cb) {
   console.log('scrolling to: %s',to);
   var target = $(to);
   try {
+    $('.tooltip-top,.tooltip-bottom').tooltip('hide');
     $('html, body').animate({
       scrollTop: target.offset().top
     }, this.opts.scroll.duration, function() {

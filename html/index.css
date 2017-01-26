@@ -1,14 +1,18 @@
 #page {
   padding: 0rem;
-  padding-top: 1rem;
+  padding-top: 8rem;
 }
 
 #header {
+  position: fixed;
+  top: .5rem;
   text-align: center;
   padding-top: .5rem;
   padding-bottom: .5rem;
   background-color: rgb(0, 21, 51);
-  border-bottom: 1px solid #D15D00;
+  border-top: 2px solid #D15D00;
+  border-bottom: 4px solid #D15D00;
+  box-shadow: 0 10px 8px -8px rgb(0, 21, 51);
 }
 
 #header h1{
@@ -148,4 +152,5 @@
 .thanks dt {
   padding: 1rem .8rem 0;
   text-align: center;
+  font-size: 120%;
 }
