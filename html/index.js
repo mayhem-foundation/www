@@ -19,6 +19,8 @@ if (!window) {
   var Handlebars = window.Handlebars;
 }
 
+$.fn.collapse.Constructor.TRANSITION_DURATION = 100;
+
 var Section = function(intf,id) {
   this.opts = {
     buttonClass: {
@@ -51,9 +53,7 @@ var Section = function(intf,id) {
   },this));
   this.el.on('hidden.bs.collapse',_.bind(function(){
     console.log('section %s hidden',this.id);
-    this.intf.scrollTo(this.intf.selector,_.bind(function(){
-      this.intf.closedSection(this);
-    },this));
+    this.intf.closedSection(this);
   },this));
   this.initButtons();
   console.log('created new section %s with %s buttons',
@@ -209,17 +209,16 @@ Interface.prototype.setHash = function (hash) {
       document.title,
       window.location.pathname + hash + window.location.search);
   } else {
-    var scrollV, scrollH;
-    // Prevent scrolling by storing the page's current scroll offset
-    scrollV = document.body.scrollTop;
-    scrollH = document.body.scrollLeft;
+    // var scrollV, scrollH;
+    // // Prevent scrolling by storing the page's current scroll offset
+    // scrollV = document.body.scrollTop;
+    // scrollH = document.body.scrollLeft;
 
     window.location.hash = hash;
 
-    // Restore the scroll offset, should be flicker free
-    document.body.scrollTop = scrollV;
-    document.body.scrollLeft = scrollH;
-    console.log('cleared hash');
+    // // Restore the scroll offset, should be flicker free
+    // document.body.scrollTop = scrollV;
+    // document.body.scrollLeft = scrollH;
   }
   console.log('hash set');
 
@@ -258,14 +257,33 @@ Interface.prototype.closedSection = function (sec) {
   console.log('closed section: sec=%s, cur=%s, hash=%s',
                 sec.id,this.currentSection,hash);
 
-  if (hash === sec.selector){
-    this.setHash('');
-    document.title = this.documentTitle;
+  var hashTgt = null;
+  var scrollTgt = null;
+  var prev = {};
+  _.each(this.sections,function(s){
+    if (!scrollTgt && s.id === sec.id && s.open) {
+      scrollTgt = prev.selector;
+      hashTgt = prev.selector;
+    }
+    prev = s;
+  });
+  if (!scrollTgt) {
+    scrollTgt = 'body';
+    hashTgt = '';
   }
 
-  if (this.currentSection === sec.id) {
-    this.currentSection = null;
-  }
+  // alert('scrollTgt: '+scrollTgt);
+
+  this.scrollTo(scrollTgt,_.bind(function(){
+    if (hash === sec.selector){
+      this.setHash(hashTgt);
+      document.title = this.documentTitle;
+    }
+
+    if (this.currentSection === sec.id) {
+      this.currentSection = null;
+    }
+  },this));
 };
 
 Interface.prototype.start = function () {

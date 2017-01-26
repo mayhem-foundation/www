@@ -62,9 +62,12 @@
 
 #header .subtitle {
   font-size: 90%;
-  vertical-align: middle;
-  margin-top: .2rem;
-  padding: .1rem .5rem .2rem;
+  /*vertical-align: middle;*/
+  /*margin-top: .2rem;*/
+  /*padding: .1rem 1rem .3rem;*/
+  padding: 0;
+  margin: 0;
+  margin: 1rem .3rem;
   display: inline-block;
 }
 
@@ -105,7 +108,7 @@
 }
 
 #motto a.wavy {
-  padding: .3rem .2rem .1rem;
+  padding: .3rem .4rem .2rem;
   display: inline-block;
   font-weight: bold;
 }
@@ -137,4 +140,19 @@
 
 #thanks .list {
   padding-top: 4rem;
+}
+
+#thanks dd {
+  border-bottom-style: dotted;
+  border-bottom-color: rgb(180, 192, 209);
+  border-bottom-color: #D15D00;
+  border-bottom-width: 2px;
+  display: inline-block;
+  padding: 1rem 2rem 2rem;
+}
+
+#thanks dt {
+  padding: 1rem .8rem 0;
+  text-align: center;
+  font-size: 120%;
 }
