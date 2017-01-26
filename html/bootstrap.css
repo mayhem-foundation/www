@@ -119,6 +119,10 @@ h1 .btn-sec-open {
   font-weight: bolder;
 }
 
+.card-body .text-content input.fa {
+  color: rgb(0, 7, 17);
+}
+
 .card-footer {
   text-align: right;
   background-color: rgb(0, 7, 17);
